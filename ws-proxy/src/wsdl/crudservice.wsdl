@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wsdl:definitions
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://ws.mca.com/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="crudservice"
+	targetNamespace="http://ws.mca.com/">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://ws.mca.com/"
+				schemaLocation="crudservice.xsd"></xsd:import>
+		</xsd:schema>
+    </wsdl:types>
+	<wsdl:message name="registraCliente">
+		<wsdl:part name="parameters" element="tns:registrarCliente"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="registraClienteResponse">
+		<wsdl:part name="parameters"
+			element="tns:registrarClienteResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="listarClientes">
+		<wsdl:part name="parameters" element="tns:listarClientes"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="listarClientesResponse">
+		<wsdl:part name="parameters"
+			element="tns:listarClientesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="buscarCliente">
+		<wsdl:part name="dni" element="tns:buscarCliente"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="buscarClienteResponse">
+		<wsdl:part name="parameters" element="tns:buscarClienteResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="CrudService">
+        <wsdl:operation name="registraCliente">
+        	<wsdl:input message="tns:registraCliente"></wsdl:input>
+        	<wsdl:output message="tns:registraClienteResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listarClientes">
+        	<wsdl:input message="tns:listarClientes"></wsdl:input>
+        	<wsdl:output message="tns:listarClientesResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buscarCliente">
+        	<wsdl:input message="tns:buscarCliente"></wsdl:input>
+        	<wsdl:output message="tns:buscarClienteResponse"></wsdl:output>
+        </wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CrudServicePortBinding" type="tns:CrudService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="registraCliente">
+			<soap:operation soapAction=""></soap:operation>
+			<wsdl:input>
+				<soap:body use="literal"></soap:body>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"></soap:body>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="listarClientes">
+			<soap:operation soapAction=""></soap:operation>
+			<wsdl:input>
+				<soap:body use="literal"></soap:body>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"></soap:body>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="buscarCliente">
+			<soap:operation soapAction=""></soap:operation>
+			<wsdl:input>
+				<soap:body use="literal"></soap:body>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"></soap:body>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="crudservice">
+		<wsdl:port binding="tns:CrudServicePortBinding" name="CrudServicePort">
+			<soap:address
+				location="http://localhost:8080/crudservice"></soap:address>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
